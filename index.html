@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="styless.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:ital,wght@0,500;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <title>Calculadora Simple</title>
+
+</head>
+
+<body>
+
+
+<div class="calculadora-container">
+
+    <h1>Calculadora Simple</h1>
+   <div class="operando-container"> <label class="Operando" for="operando1">Num1:</label>
+    <input type="number" id="operando1">
+
+    <label class="operando" for="operando2">Num2:</label>
+    <input type="number" id="operando2">
+</div>
+
+    <br>
+
+    <button onclick="sumar()">Suma</button>
+    <button onclick="restar()">Resta</button>
+    <button onclick="multiplicar()">Multiplicación</button>
+    <button onclick="dividir()">División</button>
+
+    <br>
+
+    <label for="resultado">Resultado:</label>
+    <input type="text" id="resultado" readonly>
+
+    <script>
+        function sumar() {
+            realizarOperacion('+');
+        }
+
+        function restar() {
+            realizarOperacion('-');
+        }
+
+        function multiplicar() {
+            realizarOperacion('*');
+        }
+
+        function dividir() {
+            realizarOperacion('/');
+        }
+
+        function realizarOperacion(operador) {
+            const operando1 = parseFloat(document.getElementById('operando1').value);
+            const operando2 = parseFloat(document.getElementById('operando2').value);
+
+
+            let resultado;
+            switch (operador) {
+                case '+':
+                    resultado = operando1 + operando2;
+                    break;
+                case '-':
+                    resultado = operando1 - operando2;
+                    break;
+                case '*':
+                    resultado = operando1 * operando2;
+                    break;
+                case '/':
+                if (operando2 !== 0) {
+                            resultado = operando1 / operando2;
+                        } else {
+                            document.getElementById('resultado').value = 'No se puede dividir por cero.';
+                            return;
+                        }
+                        break;
+            }
+
+            document.getElementById('resultado').value = resultado;
+        }
+    </script>
+    </div>
+</body>
+
+</html>

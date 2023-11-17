@@ -1,0 +1,28 @@
+Tengo desarrollada la siguiente función en javascript
+function suma (a,b,callback){
+let c = a +b;
+callback();
+}
+¿Que es el tercer parámetro recibido?
+¿En que casos es obligatorio desarrollar este tipo de funciones?
+Realizar un llamado a la función de ejemplo.
+
+
+
+En la función suma , el tercer parámetro es una función de retorno de llamada (callback). Una función de retorno de llamada es una función que se pasa como argumento a otra función y se ejecuta después de que se complete alguna operación o tarea específica.
+
+En este caso, el tercer parámetro (callback) es la función que se ejecutará después de calcular la suma de los dos valores a y b.
+
+En términos generales, desarrollar funciones con callbacks es común en situaciones donde ciertas operaciones son asíncronas o toman un tiempo variable en completarse. En JavaScript, las funciones de retorno de llamada son fundamentales para manejar operaciones asincrónicas, como solicitudes AJAX, manipulación de archivos, eventos, entre otras.
+
+
+function suma(a, b, callback) {
+    let c = a + b;
+    callback();
+}
+
+function miCallback() {
+    console.log("La suma se ha calculado.");
+}
+
+suma(3, 5, miCallback);
